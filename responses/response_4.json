@@ -1,0 +1,42 @@
+[
+  {
+    "question": "Which sentence uses the correct form of 'their'?",
+    "options": [
+      "Their going to the store later.",
+      "There dog is very friendly.",
+      "They left their books on the table.",
+      "They're house is big."
+    ],
+    "answer": "They left their books on the table."
+  },
+  {
+    "question": "What part of speech is the word 'quickly'?",
+    "options": ["Noun", "Adjective", "Verb", "Adverb"],
+    "answer": "Adverb"
+  },
+  {
+    "question": "Which sentence is written in the passive voice?",
+    "options": [
+      "The teacher graded the tests.",
+      "The tests were graded by the teacher.",
+      "The teacher is grading the tests.",
+      "The teacher will grade the tests."
+    ],
+    "answer": "The tests were graded by the teacher."
+  },
+  {
+    "question": "Choose the sentence with correct subject-verb agreement.",
+    "options": [
+      "The dogs barks at strangers.",
+      "My friend and I is going to the park.",
+      "He walk to school every day.",
+      "She writes in her journal daily."
+    ],
+    "answer": "She writes in her journal daily."
+  },
+  {
+    "question": "Which word is a conjunction?",
+    "options": ["Quickly", "Because", "Run", "Happy"],
+    "answer": "Because"
+  }
+]

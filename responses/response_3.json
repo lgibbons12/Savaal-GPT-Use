@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Which gas is primarily responsible for global warming?",
+    "options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"],
+    "answer": "Carbon dioxide"
+  },
+  {
+    "question": "What is the main cause of ozone layer depletion?",
+    "options": ["Carbon monoxide", "Chlorofluorocarbons (CFCs)", "Methane", "Sulfur dioxide"],
+    "answer": "Chlorofluorocarbons (CFCs)"
+  },
+  {
+    "question": "Which of the following is a renewable energy source?",
+    "options": ["Coal", "Natural gas", "Wind", "Oil"],
+    "answer": "Wind"
+  },
+  {
+    "question": "What process do plants use to convert sunlight into energy?",
+    "options": ["Respiration", "Fermentation", "Photosynthesis", "Transpiration"],
+    "answer": "Photosynthesis"
+  },
+  {
+    "question": "Which biome is characterized by low rainfall and sparse vegetation?",
+    "options": ["Rainforest", "Desert", "Tundra", "Savanna"],
+    "answer": "Desert"
+  }
+]

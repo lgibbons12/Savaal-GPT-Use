@@ -1,0 +1,14 @@
+[
+    {
+        "text": "Generate 5 multiple choice questions on world history. Return only the questions in JSON format."
+    },
+    {
+        "text": "Create 5 multiple choice questions about basic algebra. Provide only the JSON of the questions."
+    },
+    {
+        "text": "Write 5 multiple choice questions on environmental science. Output only the JSON for the questions."
+    },
+    {
+        "text": "Produce 5 multiple choice questions on English grammar. Return just the questions in JSON format."
+    }
+]

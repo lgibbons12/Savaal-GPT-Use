@@ -1,0 +1,27 @@
+[
+  {
+    "question": "Who was the first emperor of the Roman Empire?",
+    "options": ["Julius Caesar", "Augustus", "Nero", "Marcus Aurelius"],
+    "answer": "Augustus"
+  },
+  {
+    "question": "What event marked the beginning of World War I?",
+    "options": ["The invasion of Poland", "The assassination of Archduke Franz Ferdinand", "The sinking of the Lusitania", "The bombing of Pearl Harbor"],
+    "answer": "The assassination of Archduke Franz Ferdinand"
+  },
+  {
+    "question": "Which empire was ruled by Genghis Khan?",
+    "options": ["Ottoman Empire", "Mongol Empire", "Roman Empire", "Persian Empire"],
+    "answer": "Mongol Empire"
+  },
+  {
+    "question": "What was the primary purpose of the Berlin Wall?",
+    "options": ["To defend against invasions", "To control immigration", "To separate East and West Berlin", "To mark the border between Germany and Poland"],
+    "answer": "To separate East and West Berlin"
+  },
+  {
+    "question": "Which ancient civilization is known for building the pyramids?",
+    "options": ["Mesopotamia", "Rome", "Greece", "Egypt"],
+    "answer": "Egypt"
+  }
+]
