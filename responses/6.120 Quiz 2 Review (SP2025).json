@@ -1,47 +1,47 @@
 [
   {
-    "question": "What does the Pulverizer algorithm help compute in number theory?",
+    "question": "Which of the following best describes the purpose of the Pulverizer in number theory?",
     "options": [
-      "The prime factorization of a number",
-      "The modular inverse of a number",
-      "The largest common multiple of two numbers",
-      "The last digit of a number's power"
+      "To determine if a number is prime",
+      "To find the linear combination of two numbers yielding their GCD",
+      "To calculate factorials efficiently",
+      "To solve Diophantine equations directly"
     ]
   },
   {
-    "question": "In the context of graph coloring, what proves that a graph is at most k-colorable?",
+    "question": "What does it mean for a matching to be 'stable' in the context of the stable matching algorithm?",
     "options": [
-      "Finding a k-coloring that works",
-      "Demonstrating the presence of a (k-1)-clique",
-      "Showing the graph is planar",
-      "Using the handshake lemma"
+      "There are no unmatched participants",
+      "Each person gets their top choice",
+      "There are no rogue couples who prefer each other over their assigned partners",
+      "The matching is optimal for both sides"
     ]
   },
   {
-    "question": "What defines a stable matching in the Stable Matching algorithm?",
+    "question": "According to the Handshake Lemma, the sum of the degrees of all vertices in a graph is equal to:",
     "options": [
-      "There are no rogue couples",
-      "Every individual gets their top choice",
-      "The number of pairs is maximized",
-      "All proposals are accepted"
+      "The number of vertices",
+      "Twice the number of edges",
+      "The number of connected components",
+      "The number of faces in a planar graph"
     ]
   },
   {
-    "question": "Which of the following is a valid property of a partial order?",
+    "question": "Which of the following is NOT a property of an equivalence relation?",
     "options": [
-      "Reflexivity, symmetry, transitivity",
-      "Reflexivity, antisymmetry, transitivity",
-      "Symmetry, antisymmetry, transitivity",
-      "Irreflexivity, antisymmetry, symmetry"
+      "Reflexivity",
+      "Symmetry",
+      "Antisymmetry",
+      "Transitivity"
     ]
   },
   {
-    "question": "What does the Bookkeeper Method calculate in combinatorics?",
+    "question": "In the donuts and dividers method, how many ways are there to place n indistinguishable donuts into k distinguishable boxes?",
     "options": [
-      "Permutations with indistinguishable items",
-      "Probability of picking a subset",
-      "Sum of binomial coefficients",
-      "Total number of subsets of a set"
+      "C(n, k)",
+      "C(n+k−1, k−1)",
+      "C(n−1, k)",
+      "C(k+n, n−1)"
     ]
   }
 ]

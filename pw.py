@@ -183,20 +183,25 @@ def main():
         
         computer.click(search_input)
 
-        filenames = []
+
 
 
         for file in os.listdir("pdf_files"):
             if not file.endswith(".pdf"):
                 continue
 
-            filenames.append(file[:-4])
             file_path = os.path.join("pdf_files", file)
             print(f"Attaching file: {file_path}")
             computer.add_file(file_path)
 
             # give the UI a moment to register the attachment
             time.sleep(2)
+
+            search_input = computer.find(input_selectors)
+
+            if not search_input:
+                raise ValueError("Could not find search input")
+            
 
             # 1) refocus the textarea
             computer.click(search_input)
@@ -224,19 +229,27 @@ def main():
             # 4) wait for the response
             time.sleep(20)
             print(f"✅ Response for {file} received")
-        
 
-        all_code_handles = page.locator("pre code").all()
-
-
-        for i, code_handle in enumerate(all_code_handles):
-            code_text = code_handle.inner_text()
-            out_path = f"responses/{filenames[i]}.json"
+            # 5) Find all code blocks in the response
+            all_code_handles = page.locator("pre code").all()
+            if not all_code_handles:
+                raise RuntimeError("❌ No code blocks found in the response")
+            
+            response = all_code_handles[0].inner_text()
+            print(f"✅ Response for {file} processed")
+            # 6) Save the response to a file    
+            out_path = f"responses/{file[:-4]}.json"
             with open(out_path, 'w', encoding='utf-8') as f:
-                f.write(code_text)
-            
-            print(f"✅ Saved response {i + 1} to {out_path}")
-            
+                f.write(response)
+            print(f"✅ Response for {file} saved to {out_path}")
+
+            # ── NEW CHAT RESET ──
+            # Navigate to the “new chat” page to start clean
+            # 1) Locate the “New chat” link in the sidebar (it’s an <a>, not a button)
+            new_chat_link = page.wait_for_selector("a:has-text('New chat')", timeout=5000)
+            new_chat_link.click()
+            time.sleep(10)
+
             
 
         print("✅ JSON response written to responses folder")

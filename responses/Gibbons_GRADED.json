@@ -1,47 +1,47 @@
 [
   {
-    "question": "What does Descartes’ conceivability argument aim to show?",
+    "question": "What is the main claim Liam Gibbons argues in his paper?",
     "options": [
-      "That the body is not real",
-      "That physicalism is the best explanation",
-      "That the mind and body are distinct entities",
-      "That logical possibility is meaningless"
+      "Conceivability always entails possibility.",
+      "Descartes’ conceivability argument successfully disproves physicalism.",
+      "Physicalism is the only valid theory of mind.",
+      "Conceivability does not entail logical possibility."
     ]
   },
   {
-    "question": "What is a key criticism of Descartes’ conceivability argument discussed in the paper?",
+    "question": "Which example is used in the paper to illustrate a problem with equating conceivability and possibility?",
     "options": [
-      "It incorrectly defines the mind",
-      "It assumes that conceivability entails possibility",
-      "It denies that the brain exists",
-      "It uses outdated scientific examples"
+      "A human jumping a mile into the air.",
+      "The idea of a talking animal.",
+      "Water existing without being H2O.",
+      "A triangle having four sides."
     ]
   },
   {
-    "question": "What philosophical concept does the example of water and H₂O illustrate?",
+    "question": "According to the paper, what kind of identity requires experience or empirical observation to understand?",
     "options": [
-      "That water can be created from nothing",
-      "That conceivability always proves physical identity",
-      "That conceiving of water without H₂O does not imply it's possible",
-      "That all elements can be substituted logically"
+      "A priori identity",
+      "A posteriori identity",
+      "Logical identity",
+      "Conceptual identity"
     ]
   },
   {
-    "question": "What is an a posteriori identity according to the essay?",
+    "question": "What role does the analogy of Bruce Wayne and Batman serve in the paper?",
     "options": [
-      "An identity known through logic alone",
-      "An identity that is self-evident",
-      "An identity known through experience and observation",
-      "An identity based solely on language"
+      "To show how conceivability proves identity.",
+      "To demonstrate that dualism is flawed.",
+      "To illustrate how distinct representations can refer to the same entity.",
+      "To argue that fictional characters are irrelevant to philosophy."
     ]
   },
   {
-    "question": "Which of the following best summarizes the author's conclusion?",
+    "question": "How does the paper critique Descartes’ premise that 'the mind could be distinct from the body'?",
     "options": [
-      "Physicalism is proven beyond doubt",
-      "Descartes’ argument for dualism is valid",
-      "Conceivability does not guarantee logical possibility, weakening Descartes’ argument",
-      "Chalmers and Nagel offer more convincing arguments than Descartes"
+      "By accepting that conceivability is sufficient for logical possibility.",
+      "By showing that imagining something doesn’t prove its possibility.",
+      "By disproving dualism through scientific evidence.",
+      "By arguing that the mind is non-physical."
     ]
   }
 ]
