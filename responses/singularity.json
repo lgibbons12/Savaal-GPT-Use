@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What is the 'singularity' primarily understood to be in Chalmers' analysis?",
+    "options": [
+      "A collapse of human civilization",
+      "An explosion in machine speed without intelligence",
+      "An intelligence explosion through self-improving AI",
+      "The point where AI becomes indistinguishable from humans"
+    ]
+  },
+  {
+    "question": "Which key figure originally formulated the idea of an 'intelligence explosion'?",
+    "options": [
+      "Ray Kurzweil",
+      "David Chalmers",
+      "Eliezer Yudkowsky",
+      "I. J. Good"
+    ]
+  },
+  {
+    "question": "What does Chalmers identify as a potential 'structural obstacle' to the singularity?",
+    "options": [
+      "AI failing to meet ethical constraints",
+      "Limits in intelligence space or diminishing returns",
+      "Lack of funding for AI research",
+      "Humans preferring biological evolution"
+    ]
+  },
+  {
+    "question": "How does Chalmers suggest AI++ could impact humanity?",
+    "options": [
+      "It will provide humans with free will",
+      "It might bring about disease and war",
+      "It could cure disease, end poverty, or destroy the human race",
+      "It will prevent further technological progress"
+    ]
+  },
+  {
+    "question": "What is one proposed method for avoiding negative singularity outcomes?",
+    "options": [
+      "Restricting all AI research to academic institutions",
+      "Creating provably friendly AI that maintains human values",
+      "Banning the use of machine learning models",
+      "Only developing AI using quantum computing"
+    ]
+  }
+]
