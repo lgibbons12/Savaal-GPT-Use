@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What is the main claim Liam Gibbons argues in his paper?",
+    "options": [
+      "Conceivability always entails possibility.",
+      "Descartes’ conceivability argument successfully disproves physicalism.",
+      "Physicalism is the only valid theory of mind.",
+      "Conceivability does not entail logical possibility."
+    ]
+  },
+  {
+    "question": "Which example is used in the paper to illustrate a problem with equating conceivability and possibility?",
+    "options": [
+      "A human jumping a mile into the air.",
+      "The idea of a talking animal.",
+      "Water existing without being H2O.",
+      "A triangle having four sides."
+    ]
+  },
+  {
+    "question": "According to the paper, what kind of identity requires experience or empirical observation to understand?",
+    "options": [
+      "A priori identity",
+      "A posteriori identity",
+      "Logical identity",
+      "Conceptual identity"
+    ]
+  },
+  {
+    "question": "What role does the analogy of Bruce Wayne and Batman serve in the paper?",
+    "options": [
+      "To show how conceivability proves identity.",
+      "To demonstrate that dualism is flawed.",
+      "To illustrate how distinct representations can refer to the same entity.",
+      "To argue that fictional characters are irrelevant to philosophy."
+    ]
+  },
+  {
+    "question": "How does the paper critique Descartes’ premise that 'the mind could be distinct from the body'?",
+    "options": [
+      "By accepting that conceivability is sufficient for logical possibility.",
+      "By showing that imagining something doesn’t prove its possibility.",
+      "By disproving dualism through scientific evidence.",
+      "By arguing that the mind is non-physical."
+    ]
+  }
+]

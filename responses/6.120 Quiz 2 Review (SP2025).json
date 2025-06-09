@@ -1,0 +1,47 @@
+[
+  {
+    "question": "Which of the following best describes the purpose of the Pulverizer in number theory?",
+    "options": [
+      "To determine if a number is prime",
+      "To find the linear combination of two numbers yielding their GCD",
+      "To calculate factorials efficiently",
+      "To solve Diophantine equations directly"
+    ]
+  },
+  {
+    "question": "What does it mean for a matching to be 'stable' in the context of the stable matching algorithm?",
+    "options": [
+      "There are no unmatched participants",
+      "Each person gets their top choice",
+      "There are no rogue couples who prefer each other over their assigned partners",
+      "The matching is optimal for both sides"
+    ]
+  },
+  {
+    "question": "According to the Handshake Lemma, the sum of the degrees of all vertices in a graph is equal to:",
+    "options": [
+      "The number of vertices",
+      "Twice the number of edges",
+      "The number of connected components",
+      "The number of faces in a planar graph"
+    ]
+  },
+  {
+    "question": "Which of the following is NOT a property of an equivalence relation?",
+    "options": [
+      "Reflexivity",
+      "Symmetry",
+      "Antisymmetry",
+      "Transitivity"
+    ]
+  },
+  {
+    "question": "In the donuts and dividers method, how many ways are there to place n indistinguishable donuts into k distinguishable boxes?",
+    "options": [
+      "C(n, k)",
+      "C(n+k−1, k−1)",
+      "C(n−1, k)",
+      "C(k+n, n−1)"
+    ]
+  }
+]

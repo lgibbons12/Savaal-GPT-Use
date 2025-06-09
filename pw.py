@@ -7,6 +7,7 @@ import os
 
 os.makedirs("responses", exist_ok=True)
 
+PROMPT = "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format."
 
 class ChromeComputer:
     def __init__(self, browser=None, page=None):
@@ -123,6 +124,16 @@ class ChromeComputer:
             self.page.mouse.move(point["x"], point["y"])
         self.page.mouse.up()
     
+    def add_file(self, file_path: str) -> None:
+        """Attach a file to the chat input"""
+        file_input = self.page.query_selector("input[type='file']")
+        if not file_input:
+            raise RuntimeError("❌ Could not find the file-upload input")
+        
+        # Set the file input to the specified file
+        file_input.set_input_files(file_path)
+        print(f"✅ File '{file_path}' attached successfully")
+    
     def save_to_file(self, filename="results.txt"):
         """Save the current page content to a file"""
         # Select all text with Ctrl+A
@@ -152,6 +163,7 @@ def main():
 
         computer = ChromeComputer(browser=browser, page=page)
 
+
         # try to find message area
         print("Looking for message input field...")
         
@@ -172,34 +184,75 @@ def main():
         computer.click(search_input)
 
 
-        with open('prompts.json', 'r') as f:
-            prompts = json.load(f)
 
-        for i, prompt in enumerate(prompts):
-            text_to_send = prompt.get("text", "")
 
-            computer.click(search_input)
-            computer.type(text_to_send)
-            computer.page.keyboard.press("Control+Enter")
+        for file in os.listdir("pdf_files"):
+            if not file.endswith(".pdf"):
+                continue
+
+            file_path = os.path.join("pdf_files", file)
+            print(f"Attaching file: {file_path}")
+            computer.add_file(file_path)
+
+            # give the UI a moment to register the attachment
+            time.sleep(2)
+
+            search_input = computer.find(input_selectors)
+
+            if not search_input:
+                raise ValueError("Could not find search input")
             
+
+            # 1) refocus the textarea
+            computer.click(search_input)
+
+            # 2) type your prompt
+            computer.type(PROMPT)
+
+            # wait a moment for the send button to appear/enabled
+            # 1) Find all of the arrow‐icon SVGs (they all get class "icon-md")
+            svgs = page.query_selector_all("svg.icon-md")
+
+            if not svgs:
+                raise RuntimeError("❌ Couldn't find any send‐icon SVGs on the page")
+
+            # 2) Grab the last one (it belongs to the most recent composer)
+            last_svg = svgs[-1]
+
+            # 3) From that SVG, climb up to its enclosing <button>
+            send_button = last_svg.evaluate_handle("el => el.closest('button')")
+
+            # 4) Click it
+            send_button.click()
+
+
+            # 4) wait for the response
+            time.sleep(20)
+            print(f"✅ Response for {file} received")
+
+            # 5) Find all code blocks in the response
+            all_code_handles = page.locator("pre code").all()
+            if not all_code_handles:
+                raise RuntimeError("❌ No code blocks found in the response")
+            
+            response = all_code_handles[0].inner_text()
+            print(f"✅ Response for {file} processed")
+            # 6) Save the response to a file    
+            out_path = f"responses/{file[:-4]}.json"
+            with open(out_path, 'w', encoding='utf-8') as f:
+                f.write(response)
+            print(f"✅ Response for {file} saved to {out_path}")
+
+            # ── NEW CHAT RESET ──
+            # Navigate to the “new chat” page to start clean
+            # 1) Locate the “New chat” link in the sidebar (it’s an <a>, not a button)
+            new_chat_link = page.wait_for_selector("a:has-text('New chat')", timeout=5000)
+            new_chat_link.click()
             time.sleep(10)
 
-        
-
-        all_code_handles = page.locator("pre code").all()
-
-
-        for i, code_handle in enumerate(all_code_handles):
-            code_text = code_handle.inner_text()
-            out_path = f"responses/response_{i + 1}.json"
-            with open(out_path, 'w', encoding='utf-8') as f:
-                f.write(code_text)
-            
-            print(f"✅ Saved response {i + 1} to {out_path}")
-            
             
 
-        print("✅ JSON response written to chatgpt_output.json")
+        print("✅ JSON response written to responses folder")
 
 
     except Exception as e:

@@ -1,0 +1,47 @@
+[
+  {
+    "question": "What is the core idea behind I. J. Good’s argument for the singularity?",
+    "options": [
+      "Humans will evolve to have superintelligence",
+      "Machines will eventually eliminate all human jobs",
+      "An ultraintelligent machine will design even more intelligent machines, leading to an intelligence explosion",
+      "Quantum mechanics will enable infinite computation power"
+    ]
+  },
+  {
+    "question": "What distinguishes AI+ from AI++ in Chalmers' terminology?",
+    "options": [
+      "AI+ is human-level AI, and AI++ is subhuman AI",
+      "AI+ refers to AI smarter than any human, while AI++ is vastly more intelligent than the smartest human",
+      "AI+ can learn, AI++ cannot",
+      "AI+ is rule-based while AI++ is neural-based"
+    ]
+  },
+  {
+    "question": "Which of the following is considered a potential 'defeater' that could prevent the singularity?",
+    "options": [
+      "Scientific consensus on AI",
+      "Advanced educational systems",
+      "Global disasters or intentional prevention of AI development",
+      "Widespread AI enthusiasm in society"
+    ]
+  },
+  {
+    "question": "According to Chalmers, what kind of philosophical questions does the singularity raise?",
+    "options": [
+      "Only computational complexity and logic",
+      "Issues of consciousness, personal identity, and the nature of intelligence",
+      "Mathematical modeling of intelligence levels",
+      "The history and progression of technological devices"
+    ]
+  },
+  {
+    "question": "Why does Chalmers argue that the notion of intelligence needs to be measured or defined?",
+    "options": [
+      "To allow artificial intelligence to pass Turing tests",
+      "To ensure that machines can outperform humans in games",
+      "To make sense of terms like AI+, AI++, and assess the plausibility of intelligence explosion",
+      "To validate computational speed improvements over time"
+    ]
+  }
+]
