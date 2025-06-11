@@ -5,8 +5,9 @@ import time
 import json
 import os
 
-
-
+# === CONFIG === #
+PDF_DIR = "pdf_files"
+OUTPUT_DIR = "responses"
 PROMPT = "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format."
 INPUT_SELECTORS = [
     "textarea[placeholder*='Message']",
@@ -21,18 +22,10 @@ class ChromeComputer:
     def __init__(self, browser=None, page=None):
         self.browser = browser
         self.page = page
-        self.dimensions = (1024, 768)  # Default dimensions
+
+
     
-    def get_dimensions(self):
-        return self.dimensions
-    
-    def get_environment(self):
-        return "browser"
-    
-    def get_current_url(self):
-        return self.page.url
-    
-    def find(self, selectors, timeout = 1000):
+    def find(self, selectors, timeout = 3000):
         if isinstance(selectors, str):
             selectors = [selectors]
         
@@ -46,18 +39,16 @@ class ChromeComputer:
 
         return None
     
-    def screenshot(self):
-        # Take screenshot and convert to base64
-        screenshot = self.page.screenshot(type='png')
-        return base64.b64encode(screenshot).decode('utf-8')
+    def query_all(self, selector: str):
+        """Find a single element by selector"""
+        return self.page.query_selector_all(selector)
     
-    def click(self, item, button='left'):
+    
+    def click(self, handle, button='left'):
         # Click at specific coordinates
-        item.click(button=button)
+        handle.click(button=button)
     
-    def scroll(self, x: int, y: int, scroll_x: int, scroll_y: int) -> None:
-        self.page.mouse.move(x, y)
-        self.page.evaluate(f"window.scrollBy({scroll_x}, {scroll_y})")
+    
     
     def type(self, text, delay: float = 75):
         """
@@ -65,60 +56,9 @@ class ChromeComputer:
         """
         self.page.keyboard.type(text, delay=delay)
     
-    def press(self, key):
-        # Press a key
-        self.page.keyboard.press(key)
     
-    def keypress(self, keys):
-        """Handle multiple key presses"""
-        # Map common key names to Playwright's format
-        key_map = {
-            'ENTER': 'Enter',
-            'TAB': 'Tab',
-            'ESCAPE': 'Escape',
-            'BACKSPACE': 'Backspace',
-            'DELETE': 'Delete',
-            'ARROW_UP': 'ArrowUp',
-            'ARROW_DOWN': 'ArrowDown',
-            'ARROW_LEFT': 'ArrowLeft',
-            'ARROW_RIGHT': 'ArrowRight',
-            'HOME': 'Home',
-            'END': 'End',
-            'PAGE_UP': 'PageUp',
-            'PAGE_DOWN': 'PageDown',
-            'F1': 'F1',
-            'F2': 'F2',
-            'F3': 'F3',
-            'F4': 'F4',
-            'F5': 'F5',
-            'F6': 'F6',
-            'F7': 'F7',
-            'F8': 'F8',
-            'F9': 'F9',
-            'F10': 'F10',
-            'F11': 'F11',
-            'F12': 'F12',
-            'CTRL': 'Control',
-            'SHIFT': 'Shift',
-            'ALT': 'Alt',
-            'META': 'Meta',
-            'COMMAND': 'Meta',
-            'WIN': 'Meta',
-            'CMD': 'Meta',  # Map CMD to Meta for Windows
-            'R': 'r'  # Add lowercase 'r' for refresh
-        }
-        
-        for key in keys:
-            # Convert key to uppercase for consistent mapping
-            key_upper = key.upper()
-            # Use mapped key if it exists, otherwise use the original key
-            playwright_key = key_map.get(key_upper, key)
-            self.page.keyboard.press(playwright_key)
-    
-    
-    def navigate(self, url):
-        """Navigate to a specific URL"""
-        self.page.goto(url)
+    def wait(self, ms: int):
+        self.page.wait_for_timeout(ms)
     
     def add_file(self, file_path: str) -> None:
         """Attach a file to the chat input"""
@@ -130,8 +70,56 @@ class ChromeComputer:
         file_input.set_input_files(file_path)
         print(f"✅ File '{file_path}' attached successfully")
     
+    def send(self):
+        """Click the send button by svg lookup"""
+        # 1) Find all of the arrow‐icon SVGs (they all get class "icon-md")
+        svgs = self.query_all("svg.icon-md")
+        if not svgs:
+            raise RuntimeError("❌ Couldn't find any send‐icon SVGs on the page")
+        
+        btn = svgs[-1].evaluate_handle("el => el.closest('button')")
+        self.click(btn)
+        print("✅ Send button clicked")
+    
+    def get_new_response(self) -> str:
+        all_code_handles = self.page.locator("pre code").all()
+        if not all_code_handles:
+            raise RuntimeError("❌ No code blocks found in the response")
+        
+        return all_code_handles[0].inner_text()
 
 
+    
+    def new_chat(self):
+        """Click the 'New chat' button to start a new conversation"""
+        new_chat = self.find("a:has-text('New chat')", timeout=5000)
+        if not new_chat:
+            raise RuntimeError("❌ Could not find 'New chat' link")
+        
+        self.click(new_chat)
+        self.wait(500)
+        print("✅ New chat started")
+
+
+
+
+# === MAIN SCRIPT === #
+def process_file(computer: ChromeComputer, pdf_path: str, prompt: str):
+    computer.add_file(pdf_path)
+    time.sleep(2)  # Wait for the file to be attached
+    search_input = computer.find(INPUT_SELECTORS)
+    if not search_input:
+        raise ValueError("Could not find search input")
+    
+    computer.click(search_input)  # Refocus the textarea
+    computer.type(prompt)  # Type the prompt
+    time.sleep(1)  # Wait for the send button to appear
+    computer.send()  # Click the send button
+    time.sleep(20)  # Wait for the response
+
+    response = computer.get_new_response()
+
+    return response
 
 
 
@@ -145,13 +133,14 @@ def main():
         print("✅ Connected to existing Chrome session")
 
         computer = ChromeComputer(browser=browser, page=page)
+
     except Exception as e:
         print(f"Error connecting to Chrome: {e}")
         return
     
 
 
-    for file in os.listdir("pdf_files"):
+    for file in os.listdir(PDF_DIR):
         if not file.endswith(".pdf"):
             continue
 
@@ -159,54 +148,10 @@ def main():
 
         try:
             print(f"Processing file: {file}")
-            computer.add_file(file_path)
-        
-            # give the UI a moment to register the attachment
-            time.sleep(2)
+            response = process_file(computer, file_path, PROMPT)
 
-            search_input = computer.find(INPUT_SELECTORS)
-
-            if not search_input:
-                raise ValueError("Could not find search input")
-            
-
-            # 1) refocus the textarea
-            computer.click(search_input)
-        
-            # 2) type your prompt
-            computer.type(PROMPT)
-
-            # wait a moment for the send button to appear/enabled
-            # 1) Find all of the arrow‐icon SVGs (they all get class "icon-md")
-            svgs = page.query_selector_all("svg.icon-md")
-
-            if not svgs:
-                raise RuntimeError("❌ Couldn't find any send‐icon SVGs on the page")
-
-            # 2) Grab the last one (it belongs to the most recent composer)
-            last_svg = svgs[-1]
-
-            # 3) From that SVG, climb up to its enclosing <button>
-            send_button = last_svg.evaluate_handle("el => el.closest('button')")
-        
-            # 4) Click it
-            send_button.click()
-
-
-            # 4) wait for the response
-            time.sleep(20)
-            print(f"✅ Response for {file} received")
-
-            # 5) Find all code blocks in the response
-            all_code_handles = page.locator("pre code").all()
-            if not all_code_handles:
-                raise RuntimeError("❌ No code blocks found in the response")
-            
-            response = all_code_handles[0].inner_text()
-            print(f"✅ Response for {file} processed")
-
-            # 6) Save the response to a file    
-            out_path = f"responses/{file[:-4]}.json"
+            # 7) Save the response to a file    
+            out_path = f"{OUTPUT_DIR}/{file[:-4]}.json"
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(response)
 
@@ -215,9 +160,7 @@ def main():
             # ── NEW CHAT RESET ──
             # Navigate to the “new chat” page to start clean
             # 1) Locate the “New chat” link in the sidebar (it’s an <a>, not a button)
-            new_chat_link = page.wait_for_selector("a:has-text('New chat')", timeout=5000)
-            new_chat_link.click()
-            time.sleep(10)
+            computer.new_chat()
 
 
             print("✅ JSON response written to responses folder")
