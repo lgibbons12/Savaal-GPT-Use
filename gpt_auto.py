@@ -1,7 +1,7 @@
 from playwright.sync_api import sync_playwright
 import time
 import os
-from agent import ChromeComputer
+from agent import GPTComputer
 
 # === CONFIG === #
 PDF_DIR = "pdf_files"
@@ -19,23 +19,6 @@ INPUT_SELECTORS = [
 
 
 
-# === MAIN SCRIPT === #
-def process_file(computer: ChromeComputer, pdf_path: str, prompt: str):
-    computer.add_file(pdf_path)
-    time.sleep(2)  # Wait for the file to be attached
-    search_input = computer.find(INPUT_SELECTORS)
-    if not search_input:
-        raise ValueError("Could not find search input")
-    
-    computer.click(search_input)  # Refocus the textarea
-    computer.type(prompt)  # Type the prompt
-    time.sleep(1)  # Wait for the send button to appear
-    computer.send()  # Click the send button
-    time.sleep(20)  # Wait for the response
-
-    response = computer.get_new_response()
-
-    return response
 
 
 
@@ -48,7 +31,7 @@ def main():
         page = browser.contexts[0].pages[0]  # Get the first page
         print("✅ Connected to existing Chrome session")
 
-        computer = ChromeComputer(browser=browser, page=page)
+        computer = GPTComputer(browser=browser, page=page)
 
     except Exception as e:
         print(f"Error connecting to Chrome: {e}")
@@ -64,7 +47,7 @@ def main():
 
         try:
             print(f"Processing file: {file}")
-            response = process_file(computer, file_path, PROMPT)
+            response = computer.process_file(file_path, PROMPT, INPUT_SELECTORS)
 
             # 7) Save the response to a file    
             out_path = f"{OUTPUT_DIR}/{file[:-4]}.json"

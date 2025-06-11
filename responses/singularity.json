@@ -1,47 +1,47 @@
 [
   {
-    "question": "What is the core idea behind I. J. Good’s argument for the singularity?",
+    "question": "What is the central idea behind the 'intelligence explosion' as described by I.J. Good?",
     "options": [
-      "Humans will evolve to have superintelligence",
-      "Machines will eventually eliminate all human jobs",
-      "An ultraintelligent machine will design even more intelligent machines, leading to an intelligence explosion",
-      "Quantum mechanics will enable infinite computation power"
+      "Machines will replace all human jobs.",
+      "Each generation of machines will design more intelligent machines, leading to rapidly increasing intelligence.",
+      "Humans will enhance their brains with technology.",
+      "Artificial intelligence will be limited by energy resources."
     ]
   },
   {
-    "question": "What distinguishes AI+ from AI++ in Chalmers' terminology?",
+    "question": "According to Chalmers, what is the relationship between the intelligence explosion and the speed explosion?",
     "options": [
-      "AI+ is human-level AI, and AI++ is subhuman AI",
-      "AI+ refers to AI smarter than any human, while AI++ is vastly more intelligent than the smartest human",
-      "AI+ can learn, AI++ cannot",
-      "AI+ is rule-based while AI++ is neural-based"
+      "They are identical concepts.",
+      "They are logically independent but reinforce each other when combined.",
+      "The speed explosion prevents the intelligence explosion.",
+      "Only one can occur in a given system."
     ]
   },
   {
-    "question": "Which of the following is considered a potential 'defeater' that could prevent the singularity?",
+    "question": "Which of the following best describes a 'defeater' in Chalmers’s analysis of the singularity?",
     "options": [
-      "Scientific consensus on AI",
-      "Advanced educational systems",
-      "Global disasters or intentional prevention of AI development",
-      "Widespread AI enthusiasm in society"
+      "A law of physics that forbids artificial intelligence.",
+      "An obstacle that prevents intelligent systems from manifesting their full capacities.",
+      "A competing theory about human cognition.",
+      "A system that stops working due to hardware limitations."
     ]
   },
   {
-    "question": "According to Chalmers, what kind of philosophical questions does the singularity raise?",
+    "question": "What philosophical question does Chalmers associate with the potential for uploading human minds?",
     "options": [
-      "Only computational complexity and logic",
-      "Issues of consciousness, personal identity, and the nature of intelligence",
-      "Mathematical modeling of intelligence levels",
-      "The history and progression of technological devices"
+      "Whether machine learning can improve ethics.",
+      "Whether uploading preserves consciousness and personal identity.",
+      "Whether algorithms can feel emotions.",
+      "Whether neural networks are conscious."
     ]
   },
   {
-    "question": "Why does Chalmers argue that the notion of intelligence needs to be measured or defined?",
+    "question": "Which method does Chalmers suggest might help support the argument that AI is possible?",
     "options": [
-      "To allow artificial intelligence to pass Turing tests",
-      "To ensure that machines can outperform humans in games",
-      "To make sense of terms like AI+, AI++, and assess the plausibility of intelligence explosion",
-      "To validate computational speed improvements over time"
+      "The philosophical zombie argument.",
+      "The brain emulation argument: simulating the brain to replicate intelligence.",
+      "Using Gödel's theorem to show machine limitations.",
+      "Quantum computing without programming."
     ]
   }
 ]

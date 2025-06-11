@@ -1,47 +1,47 @@
 [
   {
-    "question": "Which of the following best describes the purpose of the Pulverizer in number theory?",
+    "question": "What does the Pulverizer algorithm help you find?",
     "options": [
-      "To determine if a number is prime",
-      "To find the linear combination of two numbers yielding their GCD",
-      "To calculate factorials efficiently",
-      "To solve Diophantine equations directly"
+      "The largest common multiple of two numbers",
+      "A linear combination representing the GCD of two numbers",
+      "The binomial coefficient of two values",
+      "The sum of squares modulo a prime"
     ]
   },
   {
-    "question": "What does it mean for a matching to be 'stable' in the context of the stable matching algorithm?",
+    "question": "In the stable matching algorithm, what is a rogue couple?",
     "options": [
-      "There are no unmatched participants",
-      "Each person gets their top choice",
-      "There are no rogue couples who prefer each other over their assigned partners",
-      "The matching is optimal for both sides"
+      "Two people who have the same ranking",
+      "A couple who prefer each other over their current partners",
+      "A couple with unrequited love",
+      "A pair who both propose first"
     ]
   },
   {
-    "question": "According to the Handshake Lemma, the sum of the degrees of all vertices in a graph is equal to:",
+    "question": "Which of the following properties must a relation satisfy to be an equivalence relation?",
     "options": [
-      "The number of vertices",
-      "Twice the number of edges",
-      "The number of connected components",
-      "The number of faces in a planar graph"
+      "Reflexive, symmetric, transitive",
+      "Reflexive, antisymmetric, transitive",
+      "Injective, surjective, total",
+      "Total, symmetric, antisymmetric"
     ]
   },
   {
-    "question": "Which of the following is NOT a property of an equivalence relation?",
+    "question": "What does the Generalized Product Rule state?",
     "options": [
-      "Reflexivity",
-      "Symmetry",
-      "Antisymmetry",
-      "Transitivity"
+      "We count options by summing possible choices at each stage",
+      "We divide by repetitions when elements are indistinguishable",
+      "We multiply the number of options at each stage, even if previous choices affect values",
+      "We multiply the number of options at each stage when each choice is independent of the others"
     ]
   },
   {
-    "question": "In the donuts and dividers method, how many ways are there to place n indistinguishable donuts into k distinguishable boxes?",
+    "question": "What does a critical path in a scheduling Hasse diagram represent?",
     "options": [
-      "C(n, k)",
-      "C(n+k−1, k−1)",
-      "C(n−1, k)",
-      "C(k+n, n−1)"
+      "The minimum time to complete any task",
+      "The maximum-length chain of comparable tasks",
+      "The longest antichain of independent tasks",
+      "The set of all incomparable tasks"
     ]
   }
 ]
