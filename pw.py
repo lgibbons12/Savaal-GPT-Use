@@ -5,11 +5,19 @@ import time
 import json
 import os
 
-os.makedirs("responses", exist_ok=True)
+
 
 PROMPT = "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format."
+INPUT_SELECTORS = [
+    "textarea[placeholder*='Message']",
+    "textarea[data-id='root']",
+    "#prompt-textarea",
+    "textarea",
+    "[contenteditable='true']"
+]
 
 class ChromeComputer:
+    
     def __init__(self, browser=None, page=None):
         self.browser = browser
         self.page = page
@@ -107,22 +115,10 @@ class ChromeComputer:
             playwright_key = key_map.get(key_upper, key)
             self.page.keyboard.press(playwright_key)
     
-    def wait(self, ms=1000):
-        """Wait for specified milliseconds"""
-        self.page.wait_for_timeout(ms)
     
     def navigate(self, url):
         """Navigate to a specific URL"""
         self.page.goto(url)
-    
-    def drag(self, path: List[Dict[str, int]]) -> None:
-        if not path:
-            return
-        self.page.mouse.move(path[0]["x"], path[0]["y"])
-        self.page.mouse.down()
-        for point in path[1:]:
-            self.page.mouse.move(point["x"], point["y"])
-        self.page.mouse.up()
     
     def add_file(self, file_path: str) -> None:
         """Attach a file to the chat input"""
@@ -134,21 +130,8 @@ class ChromeComputer:
         file_input.set_input_files(file_path)
         print(f"✅ File '{file_path}' attached successfully")
     
-    def save_to_file(self, filename="results.txt"):
-        """Save the current page content to a file"""
-        # Select all text with Ctrl+A
-        self.page.keyboard.press("Control+a")
-        # Copy the selected text
-        self.page.keyboard.press("Control+c")
-        # Get the clipboard content
-        content = self.page.evaluate("""() => {
-            return navigator.clipboard.readText();
-        }""")
-        
-        # Save to file
-        with open(filename, 'w', encoding='utf-8') as f:
-            f.write(content)
-        print(f"Results saved to {filename}")
+
+
 
 
 
@@ -162,42 +145,26 @@ def main():
         print("✅ Connected to existing Chrome session")
 
         computer = ChromeComputer(browser=browser, page=page)
+    except Exception as e:
+        print(f"Error connecting to Chrome: {e}")
+        return
+    
 
 
-        # try to find message area
-        print("Looking for message input field...")
-        
-        # Try multiple selectors for the input field
-        input_selectors = [
-            "textarea[placeholder*='Message']",
-            "textarea[data-id='root']",
-            "#prompt-textarea",
-            "textarea",
-            "[contenteditable='true']"
-        ]
+    for file in os.listdir("pdf_files"):
+        if not file.endswith(".pdf"):
+            continue
 
-        search_input = computer.find(input_selectors)
+        file_path = os.path.join("pdf_files", file)
 
-        if not search_input:
-            raise ValueError("Could not find search input")
-        
-        computer.click(search_input)
-
-
-
-
-        for file in os.listdir("pdf_files"):
-            if not file.endswith(".pdf"):
-                continue
-
-            file_path = os.path.join("pdf_files", file)
-            print(f"Attaching file: {file_path}")
+        try:
+            print(f"Processing file: {file}")
             computer.add_file(file_path)
-
+        
             # give the UI a moment to register the attachment
             time.sleep(2)
 
-            search_input = computer.find(input_selectors)
+            search_input = computer.find(INPUT_SELECTORS)
 
             if not search_input:
                 raise ValueError("Could not find search input")
@@ -205,7 +172,7 @@ def main():
 
             # 1) refocus the textarea
             computer.click(search_input)
-
+        
             # 2) type your prompt
             computer.type(PROMPT)
 
@@ -221,7 +188,7 @@ def main():
 
             # 3) From that SVG, climb up to its enclosing <button>
             send_button = last_svg.evaluate_handle("el => el.closest('button')")
-
+        
             # 4) Click it
             send_button.click()
 
@@ -237,10 +204,12 @@ def main():
             
             response = all_code_handles[0].inner_text()
             print(f"✅ Response for {file} processed")
+
             # 6) Save the response to a file    
             out_path = f"responses/{file[:-4]}.json"
             with open(out_path, 'w', encoding='utf-8') as f:
                 f.write(response)
+
             print(f"✅ Response for {file} saved to {out_path}")
 
             # ── NEW CHAT RESET ──
@@ -250,18 +219,19 @@ def main():
             new_chat_link.click()
             time.sleep(10)
 
+
+            print("✅ JSON response written to responses folder")
+
+        except Exception as e:
+            print(f"❌ Error processing {file}: {e}")
+            continue
+
+    # Close the browser
+    browser.close()
+    playwright.stop()
+    print("✅ All files processed successfully. Browser closed.")
             
 
-        print("✅ JSON response written to responses folder")
-
-
-    except Exception as e:
-        print(f"Error: {e}")
-    
-    finally:
-        browser.close()
-        playwright.stop()
-
-
 if __name__ == "__main__":
+    os.makedirs("responses", exist_ok=True)
     main()
