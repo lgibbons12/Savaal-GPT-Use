@@ -1,13 +1,22 @@
 import time
+from abc import ABC, abstractmethod
 
-class ChromeComputer:
+class ChromeComputer(ABC):
     """
     ChromeComputer is a base class for interacting with the Chrome browser.
     It includes methods for finding elements, clicking, typing, and waiting.
     """
 
-    PROMPT = None
-    OUTPUT_DIR = None
+    @property
+    @abstractmethod
+    def PROMPT(self) -> str:
+        ...
+    
+    @property
+    @abstractmethod
+    def OUTPUT_DIR(self) -> str:
+        ...
+
     
     def __init__(self, browser=None, page=None):
         self.browser = browser
@@ -48,18 +57,23 @@ class ChromeComputer:
     def wait(self, ms: int):
         self.page.wait_for_timeout(ms)
     
+    @abstractmethod
     def add_file(self, file_path: str) -> None:
         ...
     
+    @abstractmethod
     def send(self):
         ...
     
+    @abstractmethod
     def get_new_response(self) -> str:
         ...
     
+    @abstractmethod
     def new_chat(self):
         ...
 
+    @abstractmethod
     def find_input(self):
         ...
 
@@ -73,19 +87,15 @@ class ChromeComputer:
             str: The response from the chat after processing the PDF.
         """
         self.add_file(pdf_path)
+
         time.sleep(2)  # Wait for the file to be attached
         
-        search_input = self.find_input()
-
-        # different typing logic for GPT and Gemini
-        if isinstance(self, GPTComputer):
-            self.click(search_input)  # Refocus the textarea
-            self.type(self.PROMPT)  # Type the prompt
-        else:
-            search_input.type(self.PROMPT, delay=50)
+        self.find_input()
 
         time.sleep(1)  # Wait for the send button to appear
+
         self.send()  # Click the send button
+
         time.sleep(20)  # Wait for the response
 
         response = self.get_new_response()
@@ -99,8 +109,14 @@ class GPTComputer(ChromeComputer):
     It includes methods for sending messages, attaching files, and retrieving responses.
     """
 
-    OUTPUT_DIR = "gpt_responses"
-    PROMPT = "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format."
+    @property
+    def PROMPT(self) -> str:
+        return "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format."
+
+
+    @property
+    def OUTPUT_DIR(self) -> str:
+        return "gpt_responses"
 
 
     def __init__(self, browser=None, page=None):
@@ -158,7 +174,8 @@ class GPTComputer(ChromeComputer):
         if not search_input:
             raise ValueError("Could not find search input")
         
-        return search_input
+        self.click(search_input)  # Refocus the textarea
+        self.type(self.PROMPT)  # Type the prompt
     
     def get_new_response(self) -> str:
         """
@@ -180,8 +197,13 @@ class GeminiComputer(ChromeComputer):
     It includes methods for sending messages, attaching files, and retrieving responses.
     """
 
-    OUTPUT_DIR = "gemini_responses"
-    PROMPT = "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format. Make sure it is in a code editor JSON format."
+    @property
+    def PROMPT(self) -> str:
+        return "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format. Make sure it is in a code editor JSON format."
+
+    @property
+    def OUTPUT_DIR(self) -> str:
+        return "gemini_responses"
 
 
     def __init__(self, browser=None, page=None):
@@ -228,7 +250,7 @@ class GeminiComputer(ChromeComputer):
         textarea.first.wait_for(timeout=5000)
         textarea.first.click()
         print("✅ Clicked the input area")
-        return textarea.first  # Return the textarea element
+        textarea.first.type(self.PROMPT, delay=50)
     
     def new_chat(self):
         """
