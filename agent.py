@@ -66,7 +66,7 @@ class ChromeComputer:
         ...
 
     
-    def process_file(self, pdf_path: str, prompt: str) -> str:
+    def process_file(self, pdf_path: str) -> str:
         """        Process a PDF file by attaching it to the chat, sending a prompt, and retrieving the response.
         Args:
             pdf_path (str): Path to the PDF file to be processed.
@@ -82,9 +82,9 @@ class ChromeComputer:
 
         if isinstance(self, GPTComputer):
             self.click(search_input)  # Refocus the textarea
-            self.type(prompt)  # Type the prompt
+            self.type(self.PROMPT)  # Type the prompt
         else:
-            search_input.type(prompt, delay=50)
+            search_input.type(self.PROMPT, delay=50)
         time.sleep(1)  # Wait for the send button to appear
         self.send()  # Click the send button
         time.sleep(20)  # Wait for the response
@@ -100,7 +100,7 @@ class GPTComputer(ChromeComputer):
     It includes methods for sending messages, attaching files, and retrieving responses.
     """
 
-    OUTPUT_DIR = "responses"
+    OUTPUT_DIR = "gpt_responses"
     PROMPT = "Generate 5 multiple-choice questions based on the content of the provided PDF and return only the questions and answer options in JSON format."
 
 
@@ -109,7 +109,7 @@ class GPTComputer(ChromeComputer):
 
     def send(self):
         # 1) Find all of the arrow‐icon SVGs (they all get class "icon-md")
-        svgs = self.query_all("svg.icon-md")
+        svgs = self.query_all("svg.icon")
         if not svgs:
             raise RuntimeError("❌ Couldn't find any send‐icon SVGs on the page")
         
@@ -146,6 +146,8 @@ class GPTComputer(ChromeComputer):
         search_input = self.find(INPUT_SELECTORS)
         if not search_input:
             raise ValueError("Could not find search input")
+        
+        return search_input
     
     def get_new_response(self) -> str:
         code_blocks = self.page.locator("pre code").all()
@@ -192,6 +194,7 @@ class GeminiComputer(ChromeComputer):
         file_chooser = fc_info.value
         file_chooser.set_files(file_path)
         print(f"✅ Uploaded file {file_path}")
+       
 
     def find_input(self):
         textarea = (
@@ -237,8 +240,7 @@ class GeminiComputer(ChromeComputer):
                 raise RuntimeError("No response from monaco editor")
 
             return json_text
-        except Exception as e:
-            print(f"Error getting response: {e}")
+        except:
             print("Trying to get response from code blocks")
             code_blocks = self.page.locator("pre code").all()
             if code_blocks:

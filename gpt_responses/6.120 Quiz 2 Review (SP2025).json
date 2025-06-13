@@ -1,0 +1,47 @@
+[
+  {
+    "question": "Which of the following best describes the Euclidean Algorithm?",
+    "options": [
+      "A method for finding prime numbers.",
+      "A technique for proving the Fundamental Theorem of Arithmetic.",
+      "A process for finding the greatest common divisor (gcd) of two numbers.",
+      "A rule for performing modular arithmetic operations."
+    ]
+  },
+  {
+    "question": "In graph coloring, how can you prove that a graph is at most k-colorable?",
+    "options": [
+      "By proposing a k-coloring.",
+      "By explaining why the graph cannot be colored with k−1 colors.",
+      "By counting the number of vertices.",
+      "By showing the graph is planar."
+    ]
+  },
+  {
+    "question": "What defines a stable matching in the context of matching theory?",
+    "options": [
+      "Every person is matched with their top choice.",
+      "There are no unmatched individuals.",
+      "No rogue couples exist.",
+      "Everyone prefers their partner over all others."
+    ]
+  },
+  {
+    "question": "Which property must be true for a relation to be considered an equivalence relation?",
+    "options": [
+      "Reflexive, symmetric, and transitive",
+      "Injective, surjective, and reflexive",
+      "Symmetric, antisymmetric, and transitive",
+      "Total, reflexive, and injective"
+    ]
+  },
+  {
+    "question": "How many ways are there to assemble a box of n donuts from k flavors (with indistinguishable donuts of the same flavor)?",
+    "options": [
+      "n! / k!",
+      "(n+k−1 choose k−1)",
+      "k^n",
+      "n^k"
+    ]
+  }
+]

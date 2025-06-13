@@ -3,50 +3,50 @@
     "question": "Which of the following best defines 'logical possibility' according to the text?",
     "options": [
       "Something that is possible in our world with its current laws of nature.",
-      "Something that is possible only in a world with different laws of nature.",
-      "Something that is logically impossible, like a four-sided triangle.",
-      "Something that can be conceived, therefore it must be possible."
+      "Something that is impossible in any world or dimension.",
+      "Something that is possible in a different world with different laws of nature.",
+      "Something that is only possible if it is also conceivable."
     ],
-    "answer": "Something that is possible only in a world with different laws of nature."
+    "answer": "Something that is possible in a different world with different laws of nature."
   },
   {
-    "question": "What is the primary argument presented in the text against Descartes' conceivability argument for dualism?",
+    "question": "What is the primary argument presented in the paper against Descartes' conceivability argument for dualism?",
     "options": [
-      "Physicalism is the best explanation for the correlation between the mind and brain.",
-      "Descartes' argument does not adequately define 'identity'.",
+      "Physicalism is a more intuitive theory than dualism.",
+      "Descartes' argument does not account for the 'best explanation argument' for physicalism.",
       "Conceivability does not entail possibility.",
-      "Dualism has more proponents than physicalism."
+      "The mind and body are necessarily distinct entities."
     ],
     "answer": "Conceivability does not entail possibility."
   },
   {
-    "question": "According to the text, what is an 'a posteriori' identity statement?",
+    "question": "According to the text, what is an a posteriori identity statement?",
     "options": [
       "A statement that can be known without experience or observation, like 'all bachelors are married'.",
-      "A statement that requires experience or observation to be known, such as 'Bruce Wayne is Batman'.",
-      "A statement that is logically impossible.",
-      "A statement that is universally accepted without question."
+      "A statement that requires experience and observation to know, like 'Bruce Wayne is Batman'.",
+      "A statement that is logically impossible, like 'a four-sided triangle'.",
+      "A statement that is always true, regardless of scientific discovery."
     ],
-    "answer": "A statement that requires experience or observation to be known, such as 'Bruce Wayne is Batman'."
+    "answer": "A statement that requires experience and observation to know, like 'Bruce Wayne is Batman'."
   },
   {
-    "question": "The author uses the example of 'water and H2O' to illustrate what point?",
+    "question": "The 'best explanation argument' is used in the paper to support which theory?",
     "options": [
-      "That all chemical compounds are a posteriori identities.",
-      "That it is impossible to conceive of water without H2O.",
-      "That conceivability does not entail possibility when dealing with scientific discoveries.",
-      "That water in Dimension X is fundamentally the same as water in our dimension."
+      "Dualism",
+      "The idea that conceivability entails possibility",
+      "Physicalism",
+      "Descartes' argument for the distinctness of mind and body"
     ],
-    "answer": "That conceivability does not entail possibility when dealing with scientific discoveries."
+    "answer": "Physicalism"
   },
   {
-    "question": "What is the main purpose of this essay?",
+    "question": "What is the author's main objective in writing this paper?",
     "options": [
-      "To prove that physicalism is the correct theory of mind-body interaction.",
-      "To provide a detailed history of dualism.",
-      "To show that Descartes' conceivability argument is not a valid reason to dismiss physicalism.",
-      "To argue that Chalmers' philosophical zombie argument is entirely valid."
+      "To definitively prove physicalism as the correct theory of mind and body.",
+      "To argue that Descartes' conceivability argument is not a valid reason to discard physicalism.",
+      "To introduce new arguments for dualism.",
+      "To show that conceivability always entails impossibility."
     ],
-    "answer": "To show that Descartes' conceivability argument is not a valid reason to dismiss physicalism."
+    "answer": "To argue that Descartes' conceivability argument is not a valid reason to discard physicalism."
   }
 ]

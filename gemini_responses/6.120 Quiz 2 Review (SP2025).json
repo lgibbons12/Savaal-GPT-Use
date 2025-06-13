@@ -1,52 +1,52 @@
 [
   {
-    "question": "Which of the following is NOT a divisibility rule mentioned in the document?",
-    "options": [
-      "If a|b, then a|bc for all c.",
-      "If a|b and b|c, then a|c.",
-      "If a|b and a|c, then a|sb+tc for all integers s and t.",
-      "If a|b, then a+c|b+c for all c."
-    ],
-    "correct_answer": "If a|b, then a+c|b+c for all c."
+    "question": "Which rule should be used if you are making multiple choices and taking the 'and' of all of them?",
+    "options": {
+      "A": "Sum Rule",
+      "B": "Product Rule",
+      "C": "Division Rule",
+      "D": "Bookkeeper Method"
+    },
+    "answer": "B"
   },
   {
-    "question": "According to the GCD rules, which statement is the backbone of the Euclidean algorithm and the Pulverizer?",
-    "options": [
-      "gcd(ka,kb) = k * gcd(a,b) for all k > 0.",
-      "If gcd(a,b) = 1 and gcd(a,c) = 1, then gcd(a,bc) = 1.",
-      "gcd(a,b) = gcd(b, rem(a,b)).",
-      "Every common divisor of a and b divides gcd(a,b)."
-    ],
-    "correct_answer": "gcd(a,b) = gcd(b, rem(a,b))."
+    "question": "According to the product rule, what is the number of binary strings of length n?",
+    "options": {
+      "A": "n!",
+      "B": "2n",
+      "C": "n^2",
+      "D": "n+2"
+    },
+    "answer": "B"
   },
   {
-    "question": "In the RSA Cryptosystem, what is the public key?",
-    "options": [
-      "The pair (d, n)",
-      "The pair (e, n)",
-      "The distinct primes p and q",
-      "The value (p-1)(q-1)"
-    ],
-    "correct_answer": "The pair (e, n)"
+    "question": "If you are at a restaurant with four types of sandwiches and six types of pasta dishes, how many choices do you have for a meal, according to the sum rule?",
+    "options": {
+      "A": "4",
+      "B": "6",
+      "C": "10",
+      "D": "24"
+    },
+    "answer": "C"
   },
   {
-    "question": "Which of the following is equivalent to a graph G with n vertices being a tree, according to the provided theorems?",
-    "options": [
-      "G is connected and has exactly n edges.",
-      "G is acyclic, but removing any edge would create a cycle.",
-      "G is connected, but removing any edge in G would disconnect the graph.",
-      "Every pair of vertices of G is connected by multiple paths."
-    ],
-    "correct_answer": "G is connected, but removing any edge in G would disconnect the graph."
+    "question": "How many ways are there to rearrange the letters in the word “bookkeeper”?",
+    "options": {
+      "A": "10!",
+      "B": "10! / (2! * 2! * 3!)",
+      "C": "8!",
+      "D": "8! / (2! * 2! * 3!)"
+    },
+    "answer": "B"
   },
   {
-    "question": "What defines a 'rogue couple' in the context of stable matching?",
-    "options": [
-      "When two people prefer their current partners over anyone else.",
-      "When one person prefers another, but the feeling is not reciprocated.",
-      "When two people prefer each other over their current partners.",
-      "When a matching is not optimal for the asker."
-    ],
-    "correct_answer": "When two people prefer each other over their current partners."
+    "question": "If you want to assemble a box of n donuts with k different flavors (donuts of the same flavor are indistinguishable), how many ways are there to do so?",
+    "options": {
+      "A": "(n+k-1)C(n)",
+      "B": "(n+k-1)C(k-1)",
+      "C": "nCk",
+      "D": "n+k-1"
+    },
+    "answer": "B"
   }
 ]

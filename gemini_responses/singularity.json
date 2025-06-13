@@ -1,52 +1,52 @@
 [
   {
-    "question": "Which of the following authors is credited with setting out the basic argument for the 'intelligence explosion'?",
-    "options": {
-      "A": "David J. Chalmers",
-      "B": "I. J. Good",
-      "C": "John Searle",
-      "D": "Vernor Vinge"
-    },
-    "correctAnswer": "B"
+    "question": "Who set out the basic argument for the intelligence explosion?",
+    "options": [
+      "David J. Chalmers",
+      "I. J. Good",
+      "John Searle",
+      "Vernor Vinge"
+    ],
+    "correctAnswer": "I. J. Good"
   },
   {
-    "question": "What is the 'singularity' as described in the provided text?",
-    "options": {
-      "A": "A philosophical concept about human consciousness.",
-      "B": "A point in time when machines become sentient.",
-      "C": "An intelligence explosion where machines create increasingly intelligent machines.",
-      "D": "The last invention humanity will ever make."
-    },
-    "correctAnswer": "C"
+    "question": "What is the 'singularity' often known as?",
+    "options": [
+      "The first ultraintelligent machine",
+      "An intelligence explosion",
+      "The last invention of man",
+      "A philosophical analysis"
+    ],
+    "correctAnswer": "An intelligence explosion"
   },
   {
-    "question": "According to the text, what is a key characteristic of an 'ultraintelligent machine'?",
-    "options": {
-      "A": "It can perfectly mimic human emotions.",
-      "B": "It can far surpass all intellectual activities of any human.",
-      "C": "It is limited by the designs of its human creators.",
-      "D": "It can only design machines of equal intelligence to itself."
-    },
-    "correctAnswer": "B"
+    "question": "According to the provided text, what is an 'ultraintelligent machine' defined as?",
+    "options": [
+      "A machine that can design any machine",
+      "A machine that can far surpass all intellectual activities of any man",
+      "A machine that is the last invention man need ever make",
+      "A machine capable of human-level intelligence"
+    ],
+    "correctAnswer": "A machine that can far surpass all intellectual activities of any man"
   },
   {
     "question": "The paper 'The Singularity: A Philosophical Analysis' was published in which journal?",
-    "options": {
-      "A": "Behavioral and Brain Sciences",
-      "B": "Whole Earth Review",
-      "C": "Journal of Consciousness Studies",
-      "D": "Human Systems Management"
-    },
-    "correctAnswer": "C"
+    "options": [
+      "Behavioral and Brain Sciences",
+      "Omni",
+      "Journal of Consciousness Studies",
+      "Whole Earth Review"
+    ],
+    "correctAnswer": "Journal of Consciousness Studies"
   },
   {
-    "question": "Who wrote 'The coming technological singularity: How to survive in the post-human era'?",
-    "options": {
-      "A": "I. J. Good",
-      "B": "David J. Chalmers",
-      "C": "Vernor Vinge",
-      "D": "S. Ulam"
-    },
-    "correctAnswer": "C"
+    "question": "Who wrote 'Moral Machines: Teaching Robots Right from Wrong'?",
+    "options": [
+      "W. Wallach & C. Allen",
+      "J. Smart",
+      "P. Unger",
+      "S. Ulam"
+    ],
+    "correctAnswer": "W. Wallach & C. Allen"
   }
 ]
