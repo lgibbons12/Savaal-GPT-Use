@@ -53,6 +53,7 @@ def run(
         typer.secho(f"❌ Error connecting to Chrome: {e}", fg=typer.colors.RED)
         return
     
+    # create the output directory if it doesn't exist
     os.makedirs(computer.OUTPUT_DIR, exist_ok=True)
 
     for file in os.listdir(pdf_dir):
