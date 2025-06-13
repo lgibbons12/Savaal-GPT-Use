@@ -1,0 +1,60 @@
+{
+  "quizTitle": "Conceivability and Possibility",
+  "questions": [
+    {
+      "questionNumber": 1,
+      "questionText": "According to the paper, what does 'logical possibility' refer to?",
+      "options": [
+        "A scenario that is possible in our current world with its existing laws of nature.",
+        "A scenario that could be possible in a different world with different laws of nature.",
+        "A scenario that is impossible to imagine.",
+        "A scenario that can only be proven through scientific observation."
+      ],
+      "correctAnswer": "A scenario that could be possible in a different world with different laws of nature."
+    },
+    {
+      "questionNumber": 2,
+      "questionText": "What is the main purpose of the essay regarding Descartes' argument for dualism?",
+      "options": [
+        "To prove that physicalism is the correct theory.",
+        "To show that Descartes' argument is not a valid reason to discard physicalism.",
+        "To introduce new arguments in favor of dualism.",
+        "To demonstrate the logical impossibility of physicalism."
+      ],
+      "correctAnswer": "To show that Descartes' argument is not a valid reason to discard physicalism."
+    },
+    {
+      "questionNumber": 3,
+      "questionText": "Which of the following is an example of an 'a priori' identity statement as described in the paper?",
+      "options": [
+        "Bruce Wayne is Batman.",
+        "Water is H2O.",
+        "All bachelors are married.",
+        "Energy equals matter."
+      ],
+      "correctAnswer": "All bachelors are married."
+    },
+    {
+      "questionNumber": 4,
+      "questionText": "How does the paper argue against the idea that conceivability entails possibility, using the example of water and H2O?",
+      "options": [
+        "By stating that water without H2O is scientifically plausible.",
+        "By suggesting that 'water' can represent different chemical compounds in different dimensions, even if H2O is its identity here.",
+        "By claiming that H2O is an a priori identity that everyone knows.",
+        "By arguing that conceiving of water without H2O is simply incorrect."
+      ],
+      "correctAnswer": "By suggesting that 'water' can represent different chemical compounds in different dimensions, even if H2O is its identity here."
+    },
+    {
+      "questionNumber": 5,
+      "questionText": "Besides Descartes' argument, what other philosophical concepts are mentioned as potentially being affected by the paper's discussion of conceivability?",
+      "options": [
+        "Plato's theory of Forms and Aristotle's four causes.",
+        "Chalmers' philosophical zombie and Nagel's conceivability argument.",
+        "Leibniz's Monadology and Hume's problem of induction.",
+        "Kant's categorical imperative and Mill's utilitarianism."
+      ],
+      "correctAnswer": "Chalmers' philosophical zombie and Nagel's conceivability argument."
+    }
+  ]
+}
