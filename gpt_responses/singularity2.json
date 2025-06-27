@@ -1,0 +1,52 @@
+[
+  {
+    "question": "What is the central idea behind the 'intelligence explosion' as described by I.J. Good?",
+    "options": {
+      "A": "Machines will replace all human jobs.",
+      "B": "Each generation of machines will design more intelligent machines, leading to rapidly increasing intelligence.",
+      "C": "Humans will enhance their brains with technology.",
+      "D": "Artificial intelligence will be limited by energy resources."
+    },
+    "answer": "B"
+  },
+  {
+    "question": "According to Chalmers, what is the relationship between the intelligence explosion and the speed explosion?",
+    "options": {
+      "A": "They are identical concepts.",
+      "B": "They are logically independent but reinforce each other when combined.",
+      "C": "The speed explosion prevents the intelligence explosion.",
+      "D": "Only one can occur in a given system."
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which of the following best describes a 'defeater' in Chalmers’s analysis of the singularity?",
+    "options": {
+      "A": "A law of physics that forbids artificial intelligence.",
+      "B": "An obstacle that prevents intelligent systems from manifesting their full capacities.",
+      "C": "A competing theory about human cognition.",
+      "D": "A system that stops working due to hardware limitations."
+    },
+    "answer": "B"
+  },
+  {
+    "question": "What philosophical question does Chalmers associate with the potential for uploading human minds?",
+    "options": {
+      "A": "Whether machine learning can improve ethics.",
+      "B": "Whether uploading preserves consciousness and personal identity.",
+      "C": "Whether algorithms can feel emotions.",
+      "D": "Whether neural networks are conscious."
+    },
+    "answer": "B"
+  },
+  {
+    "question": "Which method does Chalmers suggest might help support the argument that AI is possible?",
+    "options": {
+      "A": "The philosophical zombie argument.",
+      "B": "The brain emulation argument: simulating the brain to replicate intelligence.",
+      "C": "Using Gödel's theorem to show machine limitations.",
+      "D": "Quantum computing without programming."
+    },
+    "answer": "B"
+  }
+]
